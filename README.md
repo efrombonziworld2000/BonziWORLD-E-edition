@@ -1,5 +1,5 @@
 # BonziWORLD-Server
-Reprogrammed BonziWORLD server with a couple new security features. Works basically like vanilla bonziworld but without all the vulnerabilities
+Reprogrammed BonziWORLD server with a couple new security features. Works basically like vanilla bonziworld but without all the vulnerabilities. No building required!
 
 # Dependencies
 Node JS, Socket.io and That's it!
