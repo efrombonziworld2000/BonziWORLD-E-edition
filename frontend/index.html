@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>BonziWORLD</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+	<meta name="mobile-web-app-capable" content="yes" />
+
+	<link rel="stylesheet" type="text/css" href="./style.css">
+
+	<link rel="icon" type="image/png" href="./img/favicon.png" sizes="32x32">
+	<meta name="theme-color" content="#ffffff">
+	
+	<script src="./lib/easeljs.min.js"></script>
+	<script src="./lib/preloadjs-0.6.2.min.js"></script>
+	<script src="./lib/jquery.min.js"></script>
+	<script src="./lib/seedrandom.min.js"></script>
+	<script src="./lib/socket.io-1.4.5.js"></script>
+	<script src="./lib/speakjs/speakClient.js"></script>
+	<script src="./lib/jquery.contextMenu.min.js"></script>
+
+
+
+	<script src="./script.js"></script>
+<style>
+span{
+font-size:12px;
+}
+</style>
+</head>
+<body>
+	<div id="content">
+
+		<div id="room_info">
+			<span>Room ID - <span class="room_id">???</span></span><br>
+			<span id="room_public">This room is public.</span>
+			<span id="room_private">This room is private.</span>
+			<span id="room_owner"><br>You are the owner of this room.</span><br>
+		</div>
+
+		<canvas id="bonzi_canvas" width="100" height="100"></canvas>
+
+		
+		<table id="chat_bar"><tr>
+			<td id="chat_send">send</td>
+			<td id="chat_message_cont"><input id="chat_message" type="text" placeholder="Enter a message" style="left:-5px;height:20px;position:relative;font-size:15px;top:-1px"></td>
+			<td id="chat_tray">
+				<div id="btn_tile" class="tray_btn"></div>
+			</td>
+		</tr></table>
+
+
+		<div id="page_login" class="page">
+			<div id="login_apps" class="app_showcase"></div>
+			<div id="login_readme">Make sure to check out the <a id="readme" href="readme.html" target="_blank">README</a> before use.</div>
+			<div id="login_card" style="display:none">
+				<input id="login_name" type="text" placeholder="Nickname">
+				<input id="login_room" type="text" placeholder="Room ID (Optional)">
+				<div id="login_go"></div>
+				<div id="login_error" style="display:none"></div>
+			</div>
+			<div id="login_load">loading</div>
+			<div id="login_version">Version 6.9</div>
+		</div>
+
+		<div id="page_error" class="page" style="display:none">
+			<div id="error_cont" class="message_cont">
+				<img src="./img/error/logo.png"><br>
+				<br>
+				<h1>BonziWORLD.exe has encountered an error and needs to close.</h1><br>
+				Nah, but seriously there was an error and you got disconnected from the server. Chances are, your internet just died out for a brief moment or your device went to sleep. Otherwise the server just screwed up.<br>
+				<br>
+				Try and reload the page. If that doesn't work and your internet is okay, then panic. We'll probably be back up Soon&trade; though.<br>
+				<br>
+				<a href="#" onClick="window.location.reload()">Reload?</a><br>
+				<br>
+				Room ID - <span class="room_id">???</span><br>
+			</div>
+		</div>
+
+
+                <div id="page_error105" class="page" style="display:none">
+			<div id="error_cont" class="message_cont">
+				<img src="./img/error/logo.png"><br>
+				<br>
+				<h1>BonziWORLD.exe doesnt want to accept your connection.(105)</h1><br>
+			        there are too many clients on your ip, the max limit is <b id=limitip>unknown</b><br>
+				<br>
+				sorry but you exceeded the alt limit for this IP, this is to stop the server from being flooded.<br>
+				<br>
+			</div>
+		</div>
+
+		<div id="page_ban" class="page" style="display:none">
+			<div id="ban_cont" class="message_cont">
+				<img src="./img/ban/logo.png"><br>
+				<br>
+				<h1>You got banned!</h1><br>
+				<br>
+				<b>Why? </b><span id="ban_reason"></span><br>
+				<b>When is it over? </b><span id="ban_end"></span><br>
+			</div>
+		</div>
+
+		<div id="page_kick" class="page" style="display:none">
+			<div id="kick_cont" class="message_cont">
+				<img src="./img/ban/logo.png"><br>
+				<br>
+				<h1>You got kicked!</h1><br>
+				<br>
+				<b>Why? </b><span id="ban_reason"></span><br>
+			</div>
+		</div>
+
+		<div id="page_unsupp" class="page" style="display:none">
+			<div id="unsupp_cont" class="message_cont">
+				<img src="./img/error/logo.png"><br>
+				<br>
+				<h1>BonziWORLD cannot run on this platform.</h1><br>
+				Unfortunately, BonziWORLD cannot run in this browser for the following reasons:<br>
+				<ul id="unsupp_reasons"></ul>
+				You can try to download a BonziWORLD app that works on your device, or update your browser.
+				<div id="login_apps" class="app_showcase"></div>
+			</div>
+		</div>
+	</div>
+
+	<div id="titlebar">
+		<div id="minimize"></div>
+		<div id="maximize"></div>
+		<div id="close"></div>
+	</div>
+
+	<ad></ad>
+
+</body>
+</html>
