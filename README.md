@@ -3,3 +3,6 @@ Reprogrammed BonziWORLD server with a couple new security features. Works basica
 
 # Dependencies
 Node JS, Socket.io and That's it!
+
+# Setup
+Run the command "npm install socket.io" in the same folder as index.js. Then run "node index.js".
