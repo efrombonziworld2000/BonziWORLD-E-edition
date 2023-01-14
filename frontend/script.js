@@ -936,7 +936,7 @@ $(window).load(function () {
 });
 var undefined,
     hostname = window.location.hostname,
-    socket = io("https://" + hostname),
+    socket = io("http://" + hostname),
     usersPublic = {},
     bonzis = {},
     debug = !0;
