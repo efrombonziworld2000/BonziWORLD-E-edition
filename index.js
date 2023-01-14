@@ -32,6 +32,7 @@ var io = require("socket.io")(server, {
 );
 server.listen(config.port, () => {
     rooms["default"] = new room("default");
+    console.log("running at http://bonzi.localhost:" + config.port);
 });
 io.on("connection", (socket) => {
   //First, verify this user fits the alt limit
