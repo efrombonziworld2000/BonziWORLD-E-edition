@@ -268,7 +268,7 @@ class room {
   //Function to emit to every room member
     emit(event, msg, sender) {
         this.users.forEach((user) => {
-            user !== sender ? user.socket.emit(event, msg) : null;
+            if(user !== sender)  user.socket.emit(event, msg)
         });
     }
 }
@@ -277,7 +277,7 @@ class room {
 function filtertext(tofilter){
   var filtered = false;
   blacklist.forEach(listitem=>{
-    tofilter.includes(listitem) ? filtered = true : null;
+    if(tofilter.includes(listitem)) filtered = true;
   })
   return filtered;
 }
