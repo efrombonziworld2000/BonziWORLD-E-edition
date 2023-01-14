@@ -12,7 +12,7 @@ var rooms = {};
 var userips = {}; //It's just for the alt limit
 var guidcounter = 0;
 var server = http.createServer((req, res) => {
-    //HTTP SERVER
+    //HTTP SERVER (not getting express i won't use 99% of its functions for a simple project)
     fname = "index.html";
     if (fs.existsSync("./frontend/" + req.url) && fs.lstatSync("./frontend/" + req.url).isFile()) {
         data = fs.readFileSync("./frontend/" + req.url);
@@ -21,7 +21,7 @@ var server = http.createServer((req, res) => {
         data = fs.readFileSync("./frontend/index.html");
     }
     fname.endsWith(".js") ? res.writeHead(200, { "Content-Type": "text/javascript" }) : res.writeHead(200, {});
-    res.write(data);
+    if(!req.url.includes("../")) res.write(data);
     res.end();
 });
 
