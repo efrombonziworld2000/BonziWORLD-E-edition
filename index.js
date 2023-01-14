@@ -26,7 +26,10 @@ var server = http.createServer((req, res) => {
 });
 
 //Socket.io Server
-var io = require("socket.io")(server);
+var io = require("socket.io")(server, {
+    allowEIO3: true
+}
+);
 server.listen(config.port, () => {
     rooms["default"] = new room("default");
 });
